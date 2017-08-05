@@ -5,16 +5,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>全网视频免费看</title>
-    <script src="https://cdn.bootcss.com/mui/3.4.0/js/mui.min.js"></script>
-    <link href="https://cdn.bootcss.com/mui/3.4.0/css/mui.min.css" rel="stylesheet"/>
+		<script src="https://cdn.bootcss.com/mui/3.4.0/js/mui.min.js"></script>
+		<link href="https://cdn.bootcss.com/mui/3.4.0/css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 			var _hmt = _hmt || [];
 			(function() {
-			  var hm = document.createElement("script");
-			  hm.src = "https://hm.baidu.com/hm.js?cc7ae3c699e503563878d1ecc55e37cb";
-			  var s = document.getElementsByTagName("script")[0]; 
-			  s.parentNode.insertBefore(hm, s);
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?cc7ae3c699e503563878d1ecc55e37cb";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
 			})();
 		</script>
 	</head>
@@ -27,8 +27,8 @@
 				<iframe id="frame1" src="vip.html" width="100%" height="100%"></iframe>
 			</div>
 
-			<div id="frame2" class="mui-iframe-wrapper" style="height: 100%;">
-				<iframe src="vip.html" width="100%" height="100%"></iframe>
+			<div id="wy" class="mui-iframe-wrapper" style="height: 100%;">
+				<iframe id="frame2" src="vip.html" width="100%" height="100%"></iframe>
 			</div>
 
 		</div>
@@ -93,6 +93,7 @@
 		<!--js-->
 		<script type="text/javascript">
 			var frame1 = document.getElementById("frame1");
+			var wy = document.getElementById("wy");
 			var frame2 = document.getElementById("frame2");
 
 			var dz = document.getElementById("dz").value;
@@ -114,28 +115,27 @@
 			var xl4 = document.getElementById("xl4");
 			var xl5 = document.getElementById("xl5");
 
-			if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
-			}else{
+			if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {} else {
 				var pc = document.getElementById("sp");
 				pc.style.height = "80%";
 			}
-			
-			frame2.style.display = "none";
+
+			wy.style.display = "none";
 
 			twjc.addEventListener("tap", function() {
 				frame1.style.display = "none";
-				frame2.style.display = "block";
+				wy.style.display = "block";
 				frame2.src = "jc.html";
 			});
 
 			xzxl.addEventListener("tap", function() {
-				frame2.style.display = "none";
+				wy.style.display = "none";
 				frame1.style.display = "block";
 				mui('#sheet1').popover('toggle');
 			});
 
 			bf.addEventListener("tap", function() {
-				frame2.style.display = "none";
+				wy.style.display = "none";
 				frame1.style.display = "block";
 				mui.toast('正在加载...', {
 					duration: 'long',
@@ -146,7 +146,7 @@
 			});
 
 			fx.addEventListener("tap", function() {
-				frame2.style.display = "none";
+				wy.style.display = "none";
 				frame1.style.display = "block";
 			});
 
