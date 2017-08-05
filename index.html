@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>全网视频免费看</title>
+    <script src="https://cdn.bootcss.com/mui/3.4.0/js/mui.min.js"></script>
+    <link href="https://cdn.bootcss.com/mui/3.4.0/css/mui.min.css" rel="stylesheet"/>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body style="background:#000;">
+		<!--主体-->
+		<div class="mui-content" style="height: 100%;">
+
+			<div class="mui-iframe-wrapper" style="height: 13em;">
+				<iframe id="frame1" src="vip.html" width="100%" height="100%"></iframe>
+			</div>
+
+			<div id="frame2" class="mui-iframe-wrapper" style="height: 100%;">
+				<iframe src="vip.html" width="100%" height="100%"></iframe>
+			</div>
+
+		</div>
+
+		<!--底部选项卡-->
+		<nav class="mui-bar mui-bar-tab" style="height: 90px;">
+			<div class="mui-input-row">
+				<label>视频地址：</label>
+				<input type="text" id="dz" placeholder="请输入原视频地址" value="http://v.youku.com/v_show/id_XMjk0NTEzNjA0NA==.html">
+			</div>
+
+			<nav class="mui-bar mui-bar-tab">
+
+				<a class="mui-tab-item" id="twjc">
+					<span class="mui-icon mui-icon-image"></span>
+					<span class="mui-tab-label">图文教程</span>
+				</a>
+				<a class="mui-tab-item" id="xzxl">
+					<div class="mui-icon mui-icon-paperplane"></div>
+					<div class="mui-tab-label">选择线路</div>
+				</a>
+				<a class="mui-tab-item mui-active" id="bf">
+					<span class="mui-icon mui-icon-videocam"></span>
+					<span class="mui-tab-label">播放</span>
+				</a>
+				<a class="mui-tab-item" id="fx">
+					<span class="mui-icon mui-icon-pengyouquan"></span>
+					<span class="mui-tab-label">分享</span>
+				</a>
+
+			</nav>
+		</nav>
+
+		<!--操作表-->
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+			<!-- 可选择菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell" id="xl1" style="font-weight: bold;">
+					<a href="#">线路1</a>
+				</li>
+				<li class="mui-table-view-cell" id="xl2">
+					<a href="#">线路2</a>
+				</li>
+				<li class="mui-table-view-cell" id="xl3">
+					<a href="#">线路3</a>
+				</li>
+				<li class="mui-table-view-cell" id="xl4">
+					<a href="#">线路4</a>
+				</li>
+				<li class="mui-table-view-cell" id="xl5">
+					<a href="#">线路5</a>
+				</li>
+			</ul>
+			<!-- 取消菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#sheet1"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+
+		<!--js-->
+		<script type="text/javascript">
+			var frame1 = document.getElementById("frame1");
+			var frame2 = document.getElementById("frame2");
+
+			var dz = document.getElementById("dz").value;
+			var x1 = "http://api.662820.com/xnflv/index.php?url=";
+			var x2 = "http://vip.jlsprh.com/index.php?url=";
+			var x3 = "http://www.82190555.com/index/qqvod.php?url=";
+			var x4 = "http://api.baiyug.cn/vip/index.php?url=";
+			var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
+			var xlx = x1;
+
+			var twjc = document.getElementById("twjc");
+			var xzxl = document.getElementById("xzxl");
+			var bf = document.getElementById("bf");
+			var fx = document.getElementById("fx");
+
+			var xl1 = document.getElementById("xl1");
+			var xl2 = document.getElementById("xl2");
+			var xl3 = document.getElementById("xl3");
+			var xl4 = document.getElementById("xl4");
+			var xl5 = document.getElementById("xl5");
+
+			frame2.style.display = "none";
+
+			twjc.addEventListener("tap", function() {
+				frame1.style.display = "none";
+				frame2.style.display = "block";
+			});
+
+			xzxl.addEventListener("tap", function() {
+				frame2.style.display = "none";
+				frame1.style.display = "block";
+				mui('#sheet1').popover('toggle');
+			});
+
+			bf.addEventListener("tap", function() {
+				frame2.style.display = "none";
+				frame1.style.display = "block";
+				mui.toast('正在加载...', {
+					duration: 'long',
+					type: 'div'
+				});
+				frame1.src = xlx + dz;
+
+			});
+
+			fx.addEventListener("tap", function() {
+				frame2.style.display = "none";
+				frame1.style.display = "block";
+			});
+
+			function xlclick(a, b, c) {
+				xl1.style.fontWeight = "normal";
+				xl2.style.fontWeight = "normal";
+				xl3.style.fontWeight = "normal";
+				xl4.style.fontWeight = "normal";
+				xl5.style.fontWeight = "normal";
+				a.style.fontWeight = "bold";
+				xlx = b;
+				frame1.src = xlx + dz;
+				mui.toast('切换至线路' + c, {
+					duration: 'long',
+					type: 'div'
+				});
+				mui('#sheet1').popover('toggle');
+			}
+
+			xl1.onclick = function() {
+				xlclick(xl1, x1, "1")
+			}
+
+			xl2.onclick = function() {
+				xlclick(xl2, x2, "2")
+			}
+
+			xl3.onclick = function() {
+				xlclick(xl3, x3, "3")
+			}
+
+			xl4.onclick = function() {
+				xlclick(xl4, x4, "4")
+			}
+
+			xl5.onclick = function() {
+				xlclick(xl5, x5, "5")
+			}
+		</script>
+
+	</body>
+
+</html>
