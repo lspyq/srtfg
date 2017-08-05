@@ -16,7 +16,7 @@
 		<!--主体-->
 		<div class="mui-content" style="height: 100%;">
 
-			<div class="mui-iframe-wrapper" style="height: 13em;">
+			<div id="sp" class="mui-iframe-wrapper" style="height: 13em;">
 				<iframe id="frame1" src="vip.html" width="100%" height="100%"></iframe>
 			</div>
 
@@ -107,6 +107,12 @@
 			var xl4 = document.getElementById("xl4");
 			var xl5 = document.getElementById("xl5");
 
+			if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+			}else{
+				var pc = document.getElementById("sp");
+				pc.style.height = "80%";
+			}
+			
 			frame2.style.display = "none";
 
 			twjc.addEventListener("tap", function() {
