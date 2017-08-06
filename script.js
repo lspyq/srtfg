@@ -75,7 +75,7 @@ function xlclick(xla, xlb, xlc) {
 	
 	console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
 	
-	return();
+	return;
 	xlx = xlb;
 	if(document.URL == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
