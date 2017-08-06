@@ -8,7 +8,6 @@ var xlx = x1;
 
 window.onload=setTimeout(function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
-		document.getElementsByClassName("mui-toast-container").style.bottom = "100px";
 		document.getElementById("wy").style.display = "none";
 		document.getElementById("sp").style.display = "block";
 		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
