@@ -45,7 +45,7 @@ document.getElementById("bf").addEventListener("tap", function() {
 		type: 'div'
 	});
 	
-	if(document.URL == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
@@ -71,14 +71,9 @@ function xlclick(xla, xlb, xlc) {
 	document.getElementById(xla).style.fontWeight = "bold";
 	document.getElementById("wy").style.display = "none";
 	document.getElementById("sp").style.display = "block";
-	console.log(document.URL.split("#")[0]);
-	
-	
-	console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
-	
-	return;
+
 	xlx = xlb;
-	if(document.URL == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
