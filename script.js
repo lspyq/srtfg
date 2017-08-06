@@ -1,4 +1,4 @@
-//var urls = document.URL.split("?url=");
+
 var x1 = "http://api.662820.com/xnflv/index.php?url=";
 var x2 = "http://vip.jlsprh.com/index.php?url=";
 var x3 = "http://www.82190555.com/index/qqvod.php?url=";
@@ -74,26 +74,12 @@ function xlclick(xla, xlb, xlc) {
 
 	xlx = xlb;
 	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL.split("#")[0] == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
-		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
-		
-		console.log(xlx + document.getElementById("dz").value);
-		console.log(document.getElementById("frame1").src);
-		console.log(document.URL.split("#")[0]);
-		console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
-		console.log("http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value);
-		
+		if (document.getElementById("frame1").src != xlx + document.getElementById("dz").value){
+			document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
+		    }
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
-		
-		console.log(xlx + document.getElementById("dz").value + "else");
-		
-		console.log(document.getElementById("frame1").src + "else");
 
-		console.log(document.URL.split("#")[0]);
-		console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
-		console.log("http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value);
-		
-		
 	}
 	mui.toast('切换至线路' + xlc, {
 		duration: 'long',
