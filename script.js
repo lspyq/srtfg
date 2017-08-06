@@ -18,7 +18,7 @@ window.onload=setTimeout(function(){
 },"2000")
 
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {} else {
-	//document.getElementById("sp").style.height = "80%";
+	document.getElementById("sp").style.height = "100%";
 	document.getElementById("sp").style.paddingbottom = "90px";
 	
 }
