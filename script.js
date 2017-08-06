@@ -1,4 +1,4 @@
-var urls = document.URL.split("?url=");
+//var urls = document.URL.split("?url=");
 var x1 = "http://api.662820.com/xnflv/index.php?url=";
 var x2 = "http://vip.jlsprh.com/index.php?url=";
 var x3 = "http://www.82190555.com/index/qqvod.php?url=";
@@ -8,9 +8,9 @@ var xlx = x1;
 
 
 window.onload=function(){
-	if(urls[1] != undefined && urls[1] != "") {
-		document.getElementById("dz").value = urls[1];
-		document.getElementById("frame1").src = xlx + urls[1];
+	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
+		document.getElementById("dz").value = document.URL.split("?url=")[1];
+		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1];
 		mui.toast('正在缓冲，请稍后...', {
 			duration: 'long',
 			type: 'div'
