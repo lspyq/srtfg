@@ -78,6 +78,8 @@ function xlclick(xla, xlb, xlc) {
 		console.log(xlx + document.getElementById("dz").value);
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
+		
+		console.log(xlx + document.getElementById("dz").value);
 	}
 	mui.toast('切换至线路' + xlc, {
 		duration: 'long',
