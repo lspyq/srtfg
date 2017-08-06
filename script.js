@@ -76,10 +76,13 @@ function xlclick(xla, xlb, xlc) {
 	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 		console.log(xlx + document.getElementById("dz").value);
+		console.log(document.getElementById("frame1").src);
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 		
-		console.log(xlx + document.getElementById("dz").value);
+		console.log(xlx + document.getElementById("dz").value + "else");
+		
+		console.log(document.getElementById("frame1").src + "else");
 	}
 	mui.toast('切换至线路' + xlc, {
 		duration: 'long',
