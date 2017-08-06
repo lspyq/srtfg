@@ -71,7 +71,8 @@ function xlclick(xla, xlb, xlc) {
 	document.getElementById(xla).style.fontWeight = "bold";
 	document.getElementById("wy").style.display = "none";
 	document.getElementById("sp").style.display = "block";
-	console.log(document.URL);
+	console.log(document.URL.split("#")[0]);
+	
 	
 	console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
 	
