@@ -6,13 +6,16 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 
-if(urls[1] != undefined && urls[1] != "") {
-	document.getElementById("dz").value = urls[1];
-	document.getElementById("frame1").src = xlx + urls[1];
-	mui.toast('正在缓冲，请稍后...', {
-		duration: 'long',
-		type: 'div'
-	});
+
+window.onload=function(){
+	if(urls[1] != undefined && urls[1] != "") {
+		document.getElementById("dz").value = urls[1];
+		document.getElementById("frame1").src = xlx + urls[1];
+		mui.toast('正在缓冲，请稍后...', {
+			duration: 'long',
+			type: 'div'
+		});
+	}
 }
 
 
