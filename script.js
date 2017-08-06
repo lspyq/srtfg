@@ -17,10 +17,10 @@ window.onload=setTimeout(function(){
 	}
 },"2000")
 
-if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {} else {
+if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+	document.getElementById("sp").style.height = "13em";
+} else {
 	document.getElementById("sp").style.height = "100%";
-	//document.getElementById("sp").style.paddingBottom = "200px";
-	
 }
 
 
