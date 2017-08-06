@@ -43,10 +43,10 @@ document.getElementById("bf").addEventListener("tap", function() {
 		type: 'div'
 	});
 	
-	if(document.URL == "http://" + window.location.host + "/vipsp/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL == "http://" + window.location.host + "?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
-		window.location.href = "http://" + window.location.host + "/vipsp/?url=" + document.getElementById("dz").value;
+		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 	}
 	
 	
@@ -71,10 +71,10 @@ function xlclick(xla, xlb, xlc) {
 	document.getElementById("sp").style.display = "block";
 	
 	xlx = xlb;
-	if(document.URL == "http://" + window.location.host + "/vipsp/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL == "http://" + window.location.host + "?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
-		window.location.href = "http://" + window.location.host + "/vipsp/?url=" + document.getElementById("dz").value;
+		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 	}
 	mui.toast('切换至线路' + xlc, {
 		duration: 'long',
