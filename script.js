@@ -6,7 +6,7 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 
-//window.onload=function(){
+window.onload=function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		document.getElementById("dz").value = document.URL.split("?url=")[1];
 		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1];
@@ -15,7 +15,7 @@ var xlx = x1;
 			type: 'div'
 		});
 	}
-//}
+}
 
 
 
