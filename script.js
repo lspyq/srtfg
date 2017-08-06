@@ -18,7 +18,7 @@ window.onload=function(){
 }
 console.log(document.URL);
 console.log("http://" + window.location.host + "?url=" + document.getElementById("dz").value);
-console.log("http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value);
+console.log("http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value);
 
 if(document.URL == "http://" + window.location.host + "?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
