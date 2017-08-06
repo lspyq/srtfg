@@ -6,21 +6,9 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 
-//window.onload=function(){
-//	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
-//		document.getElementById("wy").style.display = "none";
-//		document.getElementById("sp").style.display = "block";
-//		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
-//		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1].split("#")[0];
-//		mui.toast('正在缓冲，请稍后...', {
-//			duration: 'long',
-//			type: 'div'
-//		});
-//	}
-//}
-
 window.onload=setTimeout(function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
+		document.getElementsByClassName("mui-toast-container").style.bottom = "100px";
 		document.getElementById("wy").style.display = "none";
 		document.getElementById("sp").style.display = "block";
 		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
