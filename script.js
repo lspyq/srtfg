@@ -19,7 +19,7 @@ window.onload=setTimeout(function(){
 
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {} else {
 	document.getElementById("sp").style.height = "100%";
-	document.getElementById("sp").style.paddingbottom = "90px";
+	document.getElementById("sp").style.paddingbottom = "2000px";
 	
 }
 
