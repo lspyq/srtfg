@@ -6,7 +6,7 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 
-
+document.getElementById(xl2).style.fontWeight = "bold";
 window.onload=function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		document.getElementById("dz").value = document.URL.split("?url=")[1];
