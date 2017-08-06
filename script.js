@@ -45,7 +45,7 @@ document.getElementById("bf").addEventListener("tap", function() {
 		type: 'div'
 	});
 	
-	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL.split("#")[0] == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
@@ -73,16 +73,27 @@ function xlclick(xla, xlb, xlc) {
 	document.getElementById("sp").style.display = "block";
 
 	xlx = xlb;
-	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL.split("#")[0] == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
+		
 		console.log(xlx + document.getElementById("dz").value);
 		console.log(document.getElementById("frame1").src);
+		console.log(document.URL.split("#")[0]);
+		console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
+		console.log("http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value);
+		
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 		
 		console.log(xlx + document.getElementById("dz").value + "else");
 		
 		console.log(document.getElementById("frame1").src + "else");
+
+		console.log(document.URL.split("#")[0]);
+		console.log("http://" + window.location.host + "/?url=" + document.getElementById("dz").value);
+		console.log("http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value);
+		
+		
 	}
 	mui.toast('切换至线路' + xlc, {
 		duration: 'long',
