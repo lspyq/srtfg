@@ -8,8 +8,9 @@ var xlx = x1;
 
 window.onload=function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
-		document.getElementById("dz").value = document.URL.split("?url=")[1];
-		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1];
+		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
+		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1].split("#")[0];
+		document.getElementById("sp").style.display = "block";
 		mui.toast('正在缓冲，请稍后...', {
 			duration: 'long',
 			type: 'div'
