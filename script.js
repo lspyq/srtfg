@@ -11,7 +11,7 @@ window.onload=function(){
 		document.getElementById("dz").value = document.URL.split("?url=")[1];
 		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1];
 		mui.toast('正在缓冲，请稍后...', {
-			duration: long,
+			duration: 'long',
 			type: 'div'
 		});
 	}
