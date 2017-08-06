@@ -47,6 +47,7 @@ document.getElementById("bf").addEventListener("tap", function() {
 	
 	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
+		console.log(xlx + document.getElementById("dz").value);
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 	}
