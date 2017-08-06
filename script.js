@@ -79,7 +79,7 @@ function xlclick(xla, xlb, xlc) {
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 	}
-	mui.toast('切换至线路' + xlc, {
+	mui.toast('切换至线路11111111111111111111111111111111111' + xlc, {
 		duration: 'long',
 		type: 'div'
 	});
