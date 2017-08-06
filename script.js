@@ -6,20 +6,25 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 
-document.getElementById("xl2").style.fontWeight = "bold";
-document.getElementById("xl2").style.fontWeight = "bold";
 window.onload=function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		document.getElementById("dz").value = document.URL.split("?url=")[1];
 		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1];
 		mui.toast('正在缓冲，请稍后...', {
-			duration: 10,
+			duration: long,
 			type: 'div'
 		});
 	}
 }
+console.log(document.URL);
+console.log("http://" + window.location.host + "?url=" + document.getElementById("dz").value);
+console.log("http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value);
 
-
+if(document.URL == "http://" + window.location.host + "?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
+		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
+	}else{
+		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
+	}
 
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {} else {
 	document.getElementById("sp").style.height = "80%";
@@ -80,7 +85,7 @@ function xlclick(xla, xlb, xlc) {
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
 	}
-	mui.toast('切换至线路11111111111111111111111111111111111' + xlc, {
+	mui.toast('切换至线路' + xlc, {
 		duration: 'long',
 		type: 'div'
 	});
