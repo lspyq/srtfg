@@ -63,4 +63,7 @@
 			document.getElementById("xl5").onclick = function() {
 				xlclick("xl5", x5, "5")
 			}
+			function error (){
+				
+			}
 			
