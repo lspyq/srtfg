@@ -6,7 +6,7 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 
-window.onload=function(){
+//window.onload=function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		document.getElementById("dz").value = document.URL.split("?url=")[1];
 		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1];
@@ -15,13 +15,9 @@ window.onload=function(){
 			type: 'div'
 		});
 	}
-}
+//}
 
-if(document.URL == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
-		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
-	}else{
-		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
-	}
+
 
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {} else {
 	document.getElementById("sp").style.height = "80%";
@@ -49,7 +45,7 @@ document.getElementById("bf").addEventListener("tap", function() {
 		type: 'div'
 	});
 	
-	if(document.URL == "http://" + window.location.host + "?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
@@ -77,7 +73,7 @@ function xlclick(xla, xlb, xlc) {
 	document.getElementById("sp").style.display = "block";
 	
 	xlx = xlb;
-	if(document.URL == "http://" + window.location.host + "?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/vipsp/index.html?url=" + document.getElementById("dz").value) {
+	if(document.URL == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
 		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 	}else{
 		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
