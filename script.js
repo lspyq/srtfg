@@ -8,7 +8,7 @@ var xlx = x1;
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
 	document.getElementById("sp").style.height = "19em";
 } else {
-	document.getElementById("sp").style.height = "90%";
+	document.getElementById("sp").style.height = "100%";
 }
 window.onload=setTimeout(function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
