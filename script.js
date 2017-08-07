@@ -12,6 +12,9 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
 }
 window.onload=setTimeout(function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
+		
+		document.getElementById("wy").style.display = "none";
+		document.getElementById("sp").style.display = "block";
 		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
 		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1].split("#")[0];
 		mui.toast('正在缓冲，请稍后...', {
