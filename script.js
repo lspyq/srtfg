@@ -6,7 +6,7 @@ var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
-	document.getElementById("sp").style.height = "40%";
+	document.getElementById("sp").style.height = "19em";
 } else {
 	document.getElementById("sp").style.height = "100%";
 }
