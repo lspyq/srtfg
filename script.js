@@ -5,7 +5,12 @@ var x3 = "http://www.82190555.com/index/qqvod.php?url=";
 var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
-
+if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+	document.getElementById("sp").style.height = "13em";
+	document.getElementById("sp").style.paddingbottom = "";
+} else {
+	document.getElementById("sp").style.height = "100%";
+}
 window.onload=setTimeout(function(){
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
@@ -17,11 +22,7 @@ window.onload=setTimeout(function(){
 	}
 },"2000")
 
-if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
-	document.getElementById("sp").style.height = "13em";
-} else {
-	document.getElementById("sp").style.height = "100%";
-}
+
 
 
 
