@@ -1,4 +1,4 @@
-document.title = "免VIP " + title1;
+
 var x1 = "http://api.662820.com/xnflv/index.php?url=";
 var x2 = "http://vip.jlsprh.com/index.php?url=";
 var x3 = "http://www.82190555.com/index/qqvod.php?url=";
