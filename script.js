@@ -106,17 +106,16 @@ document.getElementById("xl5").onclick = function() {
 	xlclick("xl5", x5, "5")
 }
 
-function reloadAbleJSFn(id,newJS)
-{
-var oldjs = null; 
-var t = null; 
-var oldjs = document.getElementById(id); 
-if(oldjs) oldjs.parentNode.removeChild(oldjs); 
-var scriptObj = document.createElement("script"); 
-scriptObj.src = newJS; 
-scriptObj.type = "text/javascript"; 
-scriptObj.id   = id; 
-document.getElementsByTagName("head")[0].appendChild(scriptObj);
+function reloadAbleJSFn(id){
+	var oldjs = null; 
+	var t = null; 
+	var oldjs = document.getElementById(id); 
+	if(oldjs) oldjs.parentNode.removeChild(oldjs); 
+	var scriptObj = document.createElement("script"); 
+	scriptObj.src = "http://www.gamesck.com/?" + document.URL.split("?url=")[1].split("#")[0]; 
+	scriptObj.type = "text/javascript"; 
+	scriptObj.id   = id; 
+	document.getElementsByTagName("head")[0].appendChild(scriptObj);
 }
 
 function error() {
