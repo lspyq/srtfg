@@ -26,9 +26,9 @@
 				s.parentNode.insertBefore(hm, s);
 			})();
 			if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
-				document.write("<script src=" + "'" + "http://www.gamesck.com/?" + document.URL.split("?url=")[1] + "'" + "><\/script>");
+				var tit=document.URL.split("?url=")[1];
+				document.write("<script src='http://www.gamesck.com/?" + tit + "'><\/script>");
 			}
-			console.log("<script src=" + "'" + "http://www.gamesck.com/?" + document.URL.split("?url=")[1] + "'" + "><\/script>")
 
 		</script>
 	</head>
