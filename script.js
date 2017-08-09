@@ -111,6 +111,7 @@ document.getElementById("xl5").onclick = function() {
 function error() {
 
 }
-if （title1 != ""）{
-document.title = "免VIP " + title1;
+
+if(title1 != "" && title1 != undefined) {
+	document.title = "免VIP " + title1;
 }
