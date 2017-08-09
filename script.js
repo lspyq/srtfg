@@ -11,8 +11,9 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
 	document.getElementById("sp").style.height = "100%";
 }
 window.onload=setTimeout(function(){
-	if(document.URL.split("?xl=")[1] != undefined && document.URL.split("?xl=")[1] != ""){
-		console.log(document.URL.split("?xl=")[1].split("#xl=")[1]);
+	if(document.URL.split("#xl=")[1] != undefined && document.URL.split("#xl=")[1] != ""){
+		console.log(document.URL.split("#xl=")[1]);
+		xlx = eval(document.URL.split("#xl=")[1]);
 	}
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		
@@ -84,7 +85,7 @@ function xlclick(xla, xlb, xlc) {
 			document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
 		    }
 	}else{
-		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
+		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value + "#xl=x" + xlc;
 
 	}
 	mui.toast('切换至线路' + xlc, {
