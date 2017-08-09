@@ -1,7 +1,7 @@
 
-var x1 = "http://www.82190555.com/index/qqvod.php?url=";
+var x1 = "http://api.662820.com/xnflv/index.php?url=";
 var x2 = "http://vip.jlsprh.com/index.php?url=";
-var x3 = "http://api.662820.com/xnflv/index.php?url=";
+var x3 = "http://www.82190555.com/index/qqvod.php?url=";
 var x4 = "http://api.baiyug.cn/vip/index.php?url=";
 var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 var xlx = x1;
