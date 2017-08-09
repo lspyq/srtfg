@@ -12,7 +12,7 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
 }
 window.onload=setTimeout(function(){
 	if(document.URL.split("?xl=")[1] != undefined && document.URL.split("?xl=")[1] != ""){
-		console.log(document.URL.split("?xl=")[1]);
+		console.log(document.URL.split("?xl=")[1].split("#")[0]);
 	}
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		
