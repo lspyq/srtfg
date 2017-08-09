@@ -11,6 +11,9 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
 	document.getElementById("sp").style.height = "100%";
 }
 window.onload=setTimeout(function(){
+	if(document.URL.split("?xl=")[1] != undefined && document.URL.split("?xl=")[1] != ""){
+		console.log(document.URL.split("?xl=")[1]);
+	}
 	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
 		
 		document.getElementById("wy").style.display = "none";
@@ -22,7 +25,7 @@ window.onload=setTimeout(function(){
 			type: 'div'
 		});
 	}
-},"2000")
+},"1000")
 
 
 
