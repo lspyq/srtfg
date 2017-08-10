@@ -117,5 +117,5 @@ function error() {
 }
 
 if(title != "" && title != undefined) {
-	document.title = "免VIP " + title;
+	document.title = "免会员，无广告-" + title;
 }
