@@ -116,6 +116,6 @@ function error() {
 
 }
 
-if(title1 != "" && title != undefined) {
+if(title != "" && title != undefined) {
 	document.title = "免VIP " + title;
 }
