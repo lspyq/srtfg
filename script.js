@@ -1,121 +1,330 @@
+$(document).ready(function() {
 
-var x1 = "http://api.baiyug.cn/vip/index.php?url=";
-var x2 = "http://vip.jlsprh.com/index.php?url=";
-var x3 = "http://www.82190555.com/index/qqvod.php?url=";
-var x4 = "http://api.662820.com/xnflv/index.php?url=";
-var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
-var xlx = x1;
-if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
-	document.getElementById("sp").style.height = "19em";
-} else {
-	document.getElementById("sp").style.height = "100%";
-}
-window.onload=setTimeout(function(){
-	if(document.URL.split("#xl=")[1] != undefined && document.URL.split("#xl=")[1] != ""){
-		
-		xlx = eval(document.URL.split("#xl=")[1]);
+	var x1 = "http://api.baiyug.cn/vip/index.php?url=";
+	var x2 = "http://vip.jlsprh.com/index.php?url=";
+	var x3 = "http://www.82190555.com/index/qqvod.php?url=";
+	var x4 = "http://api.662820.com/xnflv/index.php?url=";
+	var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
+	var xlx;
+	var dz;
+$('#fx').popover('open')
+	function GetQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r != null) return unescape(r[2]);
+		return null;
 	}
-	if(document.URL.split("?url=")[1] != undefined && document.URL.split("?url=")[1] != "") {
+	
+
+	var urlx = GetQueryString("url");
+	console.log(urlx)
+	
+
+	
+	if(urlx != null) {
+
+		setTimeout(function() {
+			$('#bf').popover('open');
+		}, "1")
+		$('#dz').attr('value', urlx);
+
+		$("title").html(vid[0] + "-" + document.title);
+
+		if(GetQueryString("xl") != null) {
+			xlx = eval(GetQueryString("xl"));
+			xx = GetQueryString("xl");
+			$('#' + GetQueryString("xl")).attr('class', 'am-modal-actions-danger');
+			$('#frame1').attr('src', xlx + urlx);
+
+		} else {
+			xlx = x1;
+			xx = 'x1';
+			$('#x1').attr('class', 'am-modal-actions-danger');
+			$('#frame1').attr('src', xlx + urlx);
+
+		}
+
+	} else {
+		if(GetQueryString("xl") != null) {
+			xlx = eval(GetQueryString("xl"));
+			xx = GetQueryString("xl");
+			$('#' + GetQueryString("xl")).attr('class', 'am-modal-actions-danger');
+		} else {
+			xlx = x1;
+			xx = 'x1';
+			$('#x1').attr('class', 'am-modal-actions-danger');
+		}
+	}
+	if(urlx != null) {
+
+		if(vid[vid.length - 1] == "youku") {
+			if(vid.length > 2) {
+				for(var i = 1; i < vid.length - 1; i++) {
+					if(document.URL.split("id_")[1].split("==")[0] == vid[i]) {
+						var li = "<li class=\"am-active\">";
+						var lia = "";
+					} else {
+						var li = "<li>";
+						var lia = " class=\"am-active\"";
+					}
+					$("#juji").append(li + "<a href=\"" + document.URL.split("?")[0] + "?url=http://v.youku.com/v_show/id_" + vid[i] + "==.html&xl=" + xx + "\"" + lia + ">" + i + "</a></li>");
+				}
+			}
+		}
+		if(vid[vid.length - 1] == "iqiyi") {
+			if(vid.length > 2) {
+				for(var i = 1; i < vid.length - 1; i++) {
+					if(document.URL.split("v_")[1].split(".html")[0] == vid[i]) {
+						var li = "<li class=\"am-active\">";
+						var lia = "";
+					} else {
+						var li = "<li>";
+						var lia = " class=\"am-active\"";
+					}
+					$("#juji").append(li + "<a href=\"" + document.URL.split("?")[0] + "?url=http://www.iqiyi.com/v_" + vid[i] + ".html&xl=" + xx + "\"" + lia + ">" + i + "</a></li>");
+				}
+			}
+		}
+
+		if(vid[vid.length - 1] == "qq") {
+			if(vid.length > 2) {
+				
+				for(var i = 1; i < vid.length - 1; i++) {
+					if(document.URL.split("cover/")[1].split("/")[1]) {
+						if(document.URL.split("cover/")[1].split("/")[1].split(".html")[0] == vid[i]) {
+							var li = "<li class=\"am-active\">";
+							var lia = "";
+						} else {
+							var li = "<li>";
+							var lia = " class=\"am-active\"";
+						}
+					} else {
+						if(i == 1) {
+							var li = "<li class=\"am-active\">";
+							var lia = "";
+
+						} else {
+
+							var li = "<li>";
+							var lia = " class=\"am-active\"";
+
+						}
+					}
+
+					$("#juji").append(li + "<a href=\"" + document.URL.split("?")[0] + "?url=https://v.qq.com/x/cover/" + list[0] + "/" + vid[i] + ".html&xl=" + xx + "\"" + lia + ">" + i + "</a></li>");
+				}
+			}
+		}
+
+		if(vid[vid.length - 1] == "le") {
+			if(vid.length > 2) {
+				
+				for(var i = 1; i < vid.length - 1; i++) {
+					if(document.URL.split("vplay/")[1].split(".html")[0] == vid[i]) {
+						var li = "<li class=\"am-active\">";
+						var lia = "";
+					} else {
+						var li = "<li>";
+						var lia = " class=\"am-active\"";
+					}
+					$("#juji").append(li + "<a href=\"" + document.URL.split("?")[0] + "?url=http://www.le.com/ptv/vplay/" + vid[i] + ".html&xl=" + xx + "\"" + lia + ">" + list[i] + "</a></li>");
+				}
+			}
+		}
+
+	}
+	$("#bf").click(function() {
 		
-		//document.getElementById("wy").style.display = "none";
-		document.getElementById("sp").style.display = "block";
-		document.getElementById("dz").value = document.URL.split("?url=")[1].split("#")[0];
-		document.getElementById("frame1").src = xlx + document.URL.split("?url=")[1].split("#")[0];
-		mui.toast('正在缓冲，请稍后...', {
-			duration: 'long',
-			type: 'div'
+		var dz = getVideoId(document.getElementById('dz').value)[2];
+		
+		
+		if(dzjc(dz)) {
+			
+			$(location).attr('href', "?url=" + dz + "&xl=" + xx);
+		}else{
+			document.getElementById('dz').value = "";
+			$('#bf').popover('close');
+			$('#tishi').modal('open');
+		}
+		
+	})
+
+	
+
+	$(function() {
+		$('#dz').bind('keypress', function(event) {
+
+			if(event.keyCode == "13") {
+				
+				var dz = getVideoId(document.getElementById('dz').value)[2];
+				if(dz != '' && dzjc(dz)) {
+				
+					$(location).attr('href', "?url=" + dz + "&xl=" + xx);
+				} else {
+					document.getElementById('dz').value = "";
+					$('#bf').popover('close');
+					$('#tishi').modal('open');
+				}
+			}
 		});
-	}
-},"1000")
-
-
-
-
-
-
-document.getElementById("twjc").addEventListener("tap", function() {
-	document.getElementById("sp").style.display = "none";
-	document.getElementById("frame1").src = "";
-	document.getElementById("wy").style.display = "block";
-	document.getElementById("frame2").src = "jc.html";
-});
-
-document.getElementById("xzxl").addEventListener("tap", function() {
-	mui('#sheet1').popover('toggle');
-});
-
-document.getElementById("bf").addEventListener("tap", function() {
-	document.getElementById("wy").style.display = "none";
-	document.getElementById("sp").style.display = "block";
-	mui.toast('正在加载...', {
-		duration: 'long',
-		type: 'div'
 	});
-	
-	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL.split("#")[0] == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
-		document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
-	}else{
-		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value;
+	$("#xl1").click(function() {
+		xlx = x1;
+		xx = 'x1';
+		var dz = getVideoId(document.getElementById('dz').value)[2];
+		if(dz != '' && dzjc(dz)) {
+			$(location).attr('href', "?url=" + dz + "&xl=x1");
+		} else {
+			document.getElementById('dz').value = "";
+			$('#bf').popover('close');
+			$('#tishi').modal('open');
+		}
+	})
+	$("#xl2").click(function() {
+		xlx = x2;
+		xx = 'x2';
+		var dz = getVideoId(document.getElementById('dz').value)[2];
+		if(dz != '' && dzjc(dz)) {
+			$(location).attr('href', "?url=" + dz + "&xl=x2");
+		} else {
+			document.getElementById('dz').value = "";
+			$('#bf').popover('close');
+			$('#tishi').modal('open');
+		}
+	})
+	$("#xl3").click(function() {
+		xlx = x3;
+		xx = 'x3';
+		var dz = getVideoId(document.getElementById('dz').value)[2];
+		if(dz != '' && dzjc(dz)) {
+			$(location).attr('href', "?url=" + dz + "&xl=x3");
+		} else {
+			document.getElementById('dz').value = "";
+			$('#bf').popover('close');
+			$('#tishi').modal('open');
+		}
+	})
+	$("#xl4").click(function() {
+		xlx = x4;
+		xx = 'x4';
+		var dz = getVideoId(document.getElementById('dz').value)[2];
+		if(dz != '' && dzjc(dz)) {
+			$(location).attr('href', "?url=" + dz + "&xl=x4");
+		} else {
+			document.getElementById('dz').value = "";
+			$('#bf').popover('close');
+			$('#tishi').modal('open');
+		}
+	})
+	$("#xl5").click(function() {
+		xlx = x5;
+		xx = 'x5';
+		var dz = getVideoId(document.getElementById('dz').value)[2];
+		console.log(dz);
+		if(dz != '' && dzjc(dz)) {
+			$(location).attr('href', "?url=" + dz + "&xl=x5");
+		} else {
+			document.getElementById('dz').value = "";
+			$('#bf').popover('close');
+			$('#tishi').modal('open');
+		}
+	})
+
+	if(document.getElementById("frame1").attachEvent) {
+		document.getElementById("frame1").attachEvent("onload", function() {
+			
+			$('#bf').popover('close');
+		})
+	} else {
+		document.getElementById("frame1").onload = function() {
+			
+			$('#bf').popover('close');
+		};
+	}
+
+	$("#my-popover").click(function() {
+		$('#bf').popover('close');
+	})
+
+	$(function() {
+		$("#my-actions li").click(function() {
+			$("#my-actions li").eq($(this).index()).addClass("am-modal-actions-danger").siblings().removeClass("am-modal-actions-danger");
+			$('#my-actions').modal('close');
+		})
+	})
+
+	$("#sbkk").click(function() {
+		var sjsp = Math.floor((Math.random() * spk.length));
+		//$('#frame1').attr('src', xlx + spk[sjsp]);
+		//console.log(spk[sjsp]);
+		$('#dz').attr('value', spk[sjsp]);
+		$(location).attr('href', "?url=" + spk[sjsp] + "&xl=" + xx);
+		$('#bf').popover('open');
+	})
+
+	function getVideoId(url) {
+
+		if(url.indexOf("?") > 0) {
+
+			if(url.split("youku")[1] != undefined) { //优酷
+				return ["youku", url.split("?")[0].split("#")[0].split("&")[0].split("id_")[1].split(".html")[0], "http://v.youku.com/v_show/id_" + url.split("?")[0].split("#")[0].split("&")[0].split("id_")[1]];
+			} else if(url.split("iqiyi")[1] != undefined) { //爱奇艺
+				return ["iqiyi", url.split("?")[0].split("#")[0].split("&")[0].split("v_")[1].split(".html")[0], "http://www.iqiyi.com/v_" + url.split("?")[0].split("#")[0].split("&")[0].split("v_")[1]];
+			} else if(url.split("qq.com")[1] != undefined) { //腾讯
+				if(url.split("cover/v/")[1] != undefined) {
+					return ["qq", url.split("?")[0].split("#")[0].split("&")[0].split("cover/v/")[1].split(".html")[0], "https://v.qq.com/x/cover/" + url.split("?")[0].split("#")[0].split("&")[0].split("cover/v/")[1]];
+				} else {
+					return ["qq", url.split("?")[0].split("#")[0].split("&")[0].split("cover/")[1].split(".html")[0], "https://v.qq.com/x/cover/" + url.split("?")[0].split("#")[0].split("&")[0].split("cover/")[1]];
+				}
+			} else if(url.split("le.com")[1] != undefined) { //乐视
+				if(url.split("vplay/")[1] != undefined) {
+					return ["le", url.split("?")[0].split("#")[0].split("&")[0].split("vplay/")[1].split(".html")[0], "http://www.le.com/ptv/vplay/" + url.split("?")[0].split("#")[0].split("&")[0].split("vplay/")[1]];
+				} else if(url.split("vplay_")[1] != undefined) {
+					return ["le", url.split("?")[0].split("#")[0].split("&")[0].split("vplay_")[1].split(".html")[0], "http://www.le.com/ptv/vplay/" + url.split("?")[0].split("#")[0].split("&")[0].split("vplay_")[1]];
+				} else {
+					return [];
+				}
+			} else if(url.split("tudou")[1] != undefined) { //土豆
+				return ["tudou", url.split("?")[0].split("#")[0].split("&")[0].split("/v/")[1].split(".html")[0], "http://video.tudou.com/v/" + url.split("?")[0].split("#")[0].split("&")[0].split("/v/")[1]];
+			} else if(url.split("mgtv")[1] != undefined) { //芒果tv
+				if(url.split("/#/b/")[1] != undefined) {
+					return ["mgtv", url.split("/#/")[1].split("?")[0].split("#")[0].split("&")[0].split("b/")[1].split(".html")[0], "http://www.mgtv.com/b/" + url.split("/#/")[1].split("?")[0].split("#")[0].split("&")[0].split("b/")[1]];
+				} else {
+					return ["mgtv", url.split("?")[0].split("#")[0].split("&")[0].split("b/")[1].split(".html")[0], "http://www.mgtv.com/b/" + url.split("?")[0].split("#")[0].split("&")[0].split("b/")[1]];
+				}
+			} else if(url.split("sohu.com")[1] != undefined) { //搜狐视频
+				return ["suhu", url.split("?")[0].split("#")[0].split("&")[0].split("sohu.com/")[1].split(".")[0], "http://tv.sohu.com/" + url.split("?")[0].split("#")[0].split("&")[0].split("sohu.com/")[1]];
+			} else {
+				return [url,url,url];
+			}
+
+		}else{
+			return [url,url,url];
+		}
 	}
 	
-	
-	
-});
+	function dzjc(dz){
 
-document.getElementById("ly").addEventListener("tap", function() {
-	document.getElementById("sp").style.display = "none";
-	document.getElementById("frame1").src = "";
-	document.getElementById("wy").style.display = "block";
-	document.getElementById("frame2").src = "ly.html";
-});
-
-function xlclick(xla, xlb, xlc) {
-	document.getElementById("xl1").style.fontWeight = "normal";
-	document.getElementById("xl2").style.fontWeight = "normal";
-	document.getElementById("xl3").style.fontWeight = "normal";
-	document.getElementById("xl4").style.fontWeight = "normal";
-	document.getElementById("xl5").style.fontWeight = "normal";
-	document.getElementById(xla).style.fontWeight = "bold";
-	document.getElementById("wy").style.display = "none";
-	document.getElementById("sp").style.display = "block";
-
-	xlx = xlb;
-	if(document.URL.split("#")[0] == "http://" + window.location.host + "/?url=" + document.getElementById("dz").value || document.URL.split("#")[0] == "http://" + window.location.host + "/index.html?url=" + document.getElementById("dz").value) {
-		if (document.getElementById("frame1").src != xlx + document.getElementById("dz").value){
-			document.getElementById("frame1").src = xlx + document.getElementById("dz").value;
-		    }
-	}else{
-		window.location.href = "http://" + window.location.host + "?url=" + document.getElementById("dz").value + "#xl=x" + xlc;
+		
+		
+		if(dz == ""){
+			return false;
+		}else if(dz != ""){
+			if(dz.indexOf("/")>0) {
+				return true;
+			} else if(dz.indexOf("html")>0) {
+				return true;
+			} else if(dz.indexOf(".com")>0) {
+				return true;
+			} else if(dz.indexOf(".cn")>0) {
+				return true;
+			} else if(dz.indexOf("http://")>0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 
 	}
-	mui.toast('切换至线路' + xlc, {
-		duration: 'long',
-		type: 'div'
-	});
-	mui('#sheet1').popover('toggle');
-}
-document.getElementById("xl1").onclick = function() {
-	xlclick("xl1", x1, "1")
-}
-document.getElementById("xl2").onclick = function() {
-	xlclick("xl2", x2, "2")
-}
-document.getElementById("xl3").onclick = function() {
-	xlclick("xl3", x3, "3")
-}
-document.getElementById("xl4").onclick = function() {
-	xlclick("xl4", x4, "4")
-}
-document.getElementById("xl5").onclick = function() {
-	xlclick("xl5", x5, "5")
-}
 
-
-
-function error() {
-
-}
-
-if(title != "" && title != undefined) {
-	document.title = "免会员，无广告-" + title;
-}
+})
