@@ -149,9 +149,9 @@ $('#fx').popover('open')
 		
 	})
 
-	$('#my-popover').popover({
-	    content: '<span class="am-icon-spinner am-icon-spin"></span> 正在加载，请稍后...'
-	  })
+	$('#bf').popover({
+		content: '<span class="am-icon-spinner am-icon-spin"></span> 正在加载，请稍后...'
+	})
 
 	$(function() {
 		$('#dz').bind('keypress', function(event) {
