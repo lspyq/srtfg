@@ -143,7 +143,7 @@ $('#fx').popover('open')
 			$(location).attr('href', "?url=" + dz + "&xl=" + xx);
 		}else{
 			document.getElementById('dz').value = "";
-			$('#bf').popover('close');
+			$('#bf').popover('toggle');
 			$('#tishi').modal('open');
 		}
 		
