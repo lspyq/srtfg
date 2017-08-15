@@ -17,7 +17,6 @@ $('#fx').popover('open')
 	
 
 	var urlx = GetQueryString("url");
-	console.log(urlx)
 	
 
 	
