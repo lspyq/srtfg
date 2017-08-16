@@ -59,14 +59,14 @@ $('#fx').popover('open')
 		if(vid[vid.length - 1] == "youku") {
 			if(vid.length > 2) {
 				for(var i = 1; i < vid.length - 1; i++) {
-					if(document.URL.split("id_")[1].split("==")[0] == vid[i]) {
+					if(document.URL.split("id_")[1].split(".html")[0] == vid[i]) {
 						var li = "<li class=\"am-active\">";
 						var lia = "";
 					} else {
 						var li = "<li>";
 						var lia = " class=\"am-active\"";
 					}
-					$("#juji").append(li + "<a href=\"" + document.URL.split("?")[0] + "?url=http://v.youku.com/v_show/id_" + vid[i] + "==.html&xl=" + xx + "\"" + lia + ">" + i + "</a></li>");
+					$("#juji").append(li + "<a href=\"" + document.URL.split("?")[0] + "?url=http://v.youku.com/v_show/id_" + vid[i] + ".html&xl=" + xx + "\"" + lia + ">" + i + "</a></li>");
 				}
 			}
 		}
