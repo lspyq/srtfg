@@ -16,7 +16,8 @@ function go(t,url){
 //t设置跳转时间：秒 
 //url设置跳转网址 
 document.write("<div id=text>本页将在<strong id='tt'></strong>后，跳转至：<span id='link'></span></div>"); 
-document.getElementById("link").innerHTML="<a href="+url+">"+url+"</a>"; 
+//document.getElementById("link").innerHTML="<a href="+url+">"+url+"</a>"; 
+document.getElementById("link").innerHTML="<a href="+url+">首页</a>"; 
 $(t,url); 
 } 
 function $(t,url){ 
