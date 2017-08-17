@@ -56,6 +56,7 @@ $('#fx').popover('open')
 	}
 	if(urlx != null) {
 		if(vid[vid.length - 1] == "baidu") {
+			document.getElementById('dz').value = "";
 			if(vid.length > 2) {
 				for(var i = 1; i < vid.length - 1; i++) {
 					
