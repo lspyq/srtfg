@@ -81,6 +81,14 @@
 			<div style="padding: 2px 5px 0px 5px; background-color: #222222; height: auto;">
 				<p style="font-size: 10px; color: #C0C0C0;"><span class="am-icon-exclamation-triangle" style="color: #ffcc00"></span>&nbsp;本站所有接口均来自互联网，仅提供本地学习测试使用，请勿传播或用于任何商业用途，否则后果自负。</p>
 			</div>
+			
+			<div data-am-widget="list_news" class="am-list-news am-list-news-default">
+				<div class="am-list-news-bd">
+					<ul class="am-list" id="so">	
+					</ul>
+				</div>
+			</div>
+			
 			<ul class="am-pagination" id="juji"></ul>
 
 			<div class="am-modal-actions" id="my-actions">
@@ -188,6 +196,9 @@
 
 				var urlx = GetQueryString("url");
 				if(urlx != null) {
+					if(window.location.search.split("?url=")[1].split("baidu")[1] != undefined){
+						urlx = window.location.search.split("?url=")[1];
+					}
 					document.write("<script src=\"http://info.lspyq.cn/?" + urlx + "\"><\/script>");
 				}
 			</script>
