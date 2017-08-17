@@ -55,7 +55,17 @@ $('#fx').popover('open')
 		}
 	}
 	if(urlx != null) {
-
+		if(vid[vid.length - 1] == "baidu") {
+			if(vid.length > 2) {
+				for(var i = 1; i < vid.length - 1; i++) {
+					
+					$("#so").append("<li class=\"am-g am-list-item-desced\"><a href=\"?url="+vid[i]+"&xl=" + xx + "\" class=\"am-list-item-hd \">"+title[i]+"</a><div class=\"am-list-item-text\">"+abs[i]+"</div></li>");
+					
+					
+				}
+			}
+		}
+		
 		if(vid[vid.length - 1] == "youku") {
 			if(vid.length > 2) {
 				for(var i = 1; i < vid.length - 1; i++) {
