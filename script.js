@@ -63,7 +63,8 @@ $('#fx').popover('open')
 					
 					
 				}
-			}
+			}else{$("#so").append(抱歉没有找到);
+}
 		}
 		
 		if(vid[vid.length - 1] == "youku") {
