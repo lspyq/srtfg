@@ -63,7 +63,7 @@ $('#fx').popover('open')
 					
 					
 				}
-			}else{$("#so").append(抱歉没有找到);
+			}else{$("#so").append("抱歉没有找到");
 }
 		}
 		
