@@ -142,6 +142,15 @@ $('#fx').popover('open')
 		}
 
 	}
+	$("#sou").click(function() {
+
+			$('#sousuo').modal('open');
+
+	})
+	$("#tijiao").click(function() {
+			$(location).attr('href', "?url=https://www.baidu.com/s?wd=" + document.getElementById('sosuokuang').value + "&pn=0&rn=50&tn=json");
+
+	})
 	$("#bf").click(function() {
 		
 		var dz = getVideoId(document.getElementById('dz').value)[2];
@@ -176,6 +185,14 @@ $('#fx').popover('open')
 					$('#bf').popover('close');
 					$('#tishi').modal('open');
 				}
+			}
+		});
+	});
+	$(function() {
+		$('#sosuokuang').bind('keypress', function(event) {
+
+			if(event.keyCode == "13") {
+				$(location).attr('href', "?url=https://www.baidu.com/s?wd=" + document.getElementById('sosuokuang').value + "&pn=0&rn=50&tn=json");
 			}
 		});
 	});
