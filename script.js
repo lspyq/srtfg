@@ -262,12 +262,12 @@ $('#fx').popover('open')
 
 	if(document.getElementById("frame1").attachEvent) {
 		document.getElementById("frame1").attachEvent("onload", function() {
-			
+			console.log(document.getElementById("frame1").src);
 			$('#bf').popover('close');
 		})
 	} else {
 		document.getElementById("frame1").onload = function() {
-			
+			console.log(document.getElementById("frame1").src);
 			$('#bf').popover('close');
 		};
 	}
