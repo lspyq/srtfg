@@ -7,7 +7,7 @@ $(document).ready(function() {
 	var x5 = "http://jiexi.92fz.cn/player/vip.php?url=";
 	var xlx;
 	var dz;
-	console.log(bds)；
+	console.log(bds);
 $('#fx').popover('open')
 	function GetQueryString(name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
