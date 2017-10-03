@@ -267,7 +267,7 @@ $('#fx').popover('open')
 		})
 	} else {
 		document.getElementById("frame1").onload = function() {
-			console.log(document.getElementById("frame1").src);
+			//console.log(document.getElementById("frame1").src);
 			$('#bf').popover('close');
 		};
 	}
