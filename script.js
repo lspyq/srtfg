@@ -27,7 +27,7 @@ $('#fx').popover('open')
 		}, "1")
 		$('#dz').attr('value', urlx);
 
-		$("title").html(vid[0] + "-" + document.title);
+		$("title").html(vid[0] + " " + document.title);
 
 		if(GetQueryString("xl") != null) {
 			xlx = eval(GetQueryString("xl"));
