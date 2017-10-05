@@ -31,7 +31,7 @@ $('#fx').popover('open')
 		
 		
 		if(urlx.split("youku")[1]{
-		   var vid=urlx.split("?")[0].split("#")[0].split("&")[0].split("id_")[1].split(".html")[0];
+		   var vid=urlx.split("id_")[1].split(".html")[0];
 		console.log(vid);
 		   }
 		
