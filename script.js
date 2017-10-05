@@ -30,7 +30,7 @@ $('#fx').popover('open')
 		$("title").html(vid[0] + " " + document.title);
 		
 		
-		console.log(getVideoId(urlx));
+		console.log(urlx.split("youku")[1]);
 		
 
 		if(GetQueryString("xl") != null) {
