@@ -30,7 +30,7 @@ $('#fx').popover('open')
 		$("title").html(vid[0] + " " + document.title);
 		
 		
-		if(urlx.split("youku")[1]{
+		if(urlx.split("youku")[1]){
 		   var vid=urlx.split("id_")[1].split(".html")[0];
 		console.log(vid);
 		   }
