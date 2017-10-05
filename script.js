@@ -33,6 +33,16 @@ $('#fx').popover('open')
 		if(urlx.split("youku")[1]){
 		   var vdid=urlx.split("id_")[1].split(".html")[0];
 		console.log(vdid);
+			var xhr = new XMLHttpRequest();
+			xhr.open('get','https://openapi.youku.com/v2/videos/show.json?video_id='+vdid+'&client_id=3d01f04416cbe807',true);
+			xhr.send();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4){
+					var r=eval('('+xhr.responseText+')');
+					console.log(r.title)
+					$("title").html(r.title + " " + document.title);
+				}
+			}
 		   }
 		
 
