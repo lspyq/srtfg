@@ -30,7 +30,10 @@ $('#fx').popover('open')
 		$("title").html(vid[0] + " " + document.title);
 		
 		
-		console.log(urlx.split("youku")[1]);
+		if(urlx.split("youku")[1]{
+		   var vid=urlx.split("?")[0].split("#")[0].split("&")[0].split("id_")[1].split(".html")[0];
+		console.log(vid);
+		   }
 		
 
 		if(GetQueryString("xl") != null) {
