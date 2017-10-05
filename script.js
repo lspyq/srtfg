@@ -28,6 +28,10 @@ $('#fx').popover('open')
 		$('#dz').attr('value', urlx);
 
 		$("title").html(vid[0] + " " + document.title);
+		
+		
+		console.log(getVideoId(urlx));
+		
 
 		if(GetQueryString("xl") != null) {
 			xlx = eval(GetQueryString("xl"));
