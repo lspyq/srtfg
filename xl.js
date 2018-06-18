@@ -1,6 +1,10 @@
 var xl = [
 {
 name:"万能接口",
+url:"http://api.bbbbbb.me/vip/?url=",
+},
+{
+name:"万能接口",
 url:"http://api.xfsub.com/index.php?url=",
 },
 {
