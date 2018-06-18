@@ -21,10 +21,6 @@ url:"http://jiexi.071811.cc/jx2.php?url=",
 },
 {
 name:"万能接口",
-url:"http://www.662820.com/xnflv/index.php?url=",
-},
-{
-name:"万能接口",
 url:"http://api.91exp.com/svip/?url=",
 },
 {
