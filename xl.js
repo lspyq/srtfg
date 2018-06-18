@@ -8,7 +8,7 @@ name:"万能接口",
 url:"https://beaacc.com/api.php?url=",
 },
 {
-name:"万能接口,
+name:"万能接口",
 url:"http://y.mt2t.com/lines?url=",
 },
 {
