@@ -25,7 +25,7 @@ url:"http://api.91exp.com/svip/?url=",
 },
 {
 name:"万能接口",
-url:"http://player.jidiaose.com/supapi/iframe.php?v=",
+url:"https://player.baodai.org/ipsign/player.php?v=",
 },
 {
 name:"万能接口",
