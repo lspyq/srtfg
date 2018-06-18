@@ -9,7 +9,7 @@ url:"http://api.xfsub.com/index.php?url=",
 },
 {
 name:"万能接口",
-url:"https://beaacc.com/api.php?url=",
+url:"https://beaacc.com/m5/?url=",
 },
 {
 name:"万能接口",
