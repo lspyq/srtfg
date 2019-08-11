@@ -29,19 +29,19 @@ var app = new Vue({
     },
     methods: {
         enter() {
-            window.location.href = 'http://lspyq.cn/sp/index.html#' + this.$refs.url.value
+            window.location.href = 'http://lspyq.cn/sp/index.html?' + this.$refs.url.value
         },
         init() {
 
             for (let i = 0; i < this.x.length; i++) {
                 this.li += `<li onClick="app.click(` + i + `)">线路` + (i + 1) + `</li>`
             }
-            this.url = this.x[0] + window.location.hash.substring(1)
-            this.$refs.url.value = window.location.hash.substring(1)
+            this.url = this.x[0] + window.location.search.substring(1)
+            this.$refs.url.value = window.location.search.substring(1)
 
         },
         click(x) {
-            this.url = this.x[x] + window.location.hash.substring(1)
+            this.url = this.x[x] + window.location.search.substring(1)
             this.$refs.list.style.display = 'none'
             this.$refs.srk.style.display = 'none'
         },
