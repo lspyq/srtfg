@@ -28,26 +28,30 @@ var app = new Vue({
         url: ''
     },
     methods: {
+        enter() {
+            window.location.href = 'http://lspyq.cn/sp/index.html#' + this.$refs.url.value
+        },
         init() {
-            
+
             for (let i = 0; i < this.x.length; i++) {
                 this.li += `<li onClick="app.click(` + i + `)">线路` + (i + 1) + `</li>`
             }
             this.url = this.x[0] + window.location.hash.substring(1)
+            this.$refs.url.value = window.location.hash.substring(1)
 
-            console.log(this.li)
         },
         click(x) {
             this.url = this.x[x] + window.location.hash.substring(1)
-            console.log(this.url)
-
-            console.log(this.$refs.list.style.display = 'none')
+            this.$refs.list.style.display = 'none'
+            this.$refs.srk.style.display = 'none'
         },
         btnclick() {
-            if (this.$refs.list.style.display =='block') {
-                this.$refs.list.style.display ='none' 
+            if (this.$refs.list.style.display == 'block') {
+                this.$refs.list.style.display = 'none'
+                this.$refs.srk.style.display = 'none'
             } else {
-                this.$refs.list.style.display ='block' 
+                this.$refs.list.style.display = 'block'
+                this.$refs.srk.style.display = 'block'
             }
         }
     },
