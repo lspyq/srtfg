@@ -16,13 +16,17 @@
         <iframe id="ifr" v-bind:src="url" frameborder="0"></iframe>
         <div ref="list" id="list" class="test-1">
             <ul v-html='li'>
-
+                <!-- {{li}} -->
             </ul>
         </div>
+        <div ref="srk" id="srk">
+            <input ref="url" type="text" name="firstname" value="" @keyup.enter="enter()">
+        </div>
         <div v-on:click="btnclick()" id="btn"></div>
+        <!-- <div id="btn">{{message}}</div> -->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
 
