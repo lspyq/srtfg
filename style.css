@@ -1,0 +1,69 @@
+html, body {
+    /*隐藏滚动条，当IE下溢出，仍然可以滚动*/
+    -ms-overflow-style: none;
+    /*火狐下隐藏滚动条*/
+    overflow: -moz-scrollbars-none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.box {
+    background: #222;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}
+
+#video {
+    background: #000;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    bottom: 55px;
+}
+
+#ifr {
+    background: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.van-popup {
+    min-width: 8em;
+    width: 17%
+}
+#warning {
+    background: #222;
+    height: 30px;
+    width: 100%;
+    color: #ccc;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    padding: 5px 0 0 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.text>p {
+    font-size: 0.5em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.text {
+    color: #777;
+    position: absolute;
+    top: 0;
+    left: 30px;
+}
