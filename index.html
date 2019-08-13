@@ -1,227 +1,59 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<html lang="zh-cn">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>全网vip视频在线解析</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>免费看电影</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.0/lib/index.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入组件 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.0/lib/vant.min.js"></script>
+    <style>
 
-		<!-- Set render engine for 360 browser -->
-		<meta name="renderer" content="webkit">
+    </style>
+</head>
 
-		<!-- No Baidu Siteapp-->
-		<meta http-equiv="Cache-Control" content="no-siteapp" />
+<body>
+
+    <div id="main" class="box">
+        <div id="warning">
+            <div class="icon">
+                <van-icon size="20px" name="warning-o" color="#aa8800"  />
+            </div>
+            <div class="text">
+                <p>本站所有接口均来自互联网，仅提供本地学习测试使用，请勿传播或用于任何商业用途，否则后果自负。</p>
+            </div>
 
 
-		<!-- Add to homescreen for Chrome on Android -->
-		<meta name="mobile-web-app-capable" content="yes">
+        </div>
+        <div ref="video" id="video">
+            <iframe id="ifr" ref="ifr" v-bind:src="url" frameborder="0"></iframe>
+        </div>
 
-		<!-- Add to homescreen for Safari on iOS -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+        <van-row ref="row" type="flex" style="position: fixed; bottom: 0px;z-index: 9999;width: 100%;">
+            <van-col span="4">
+                <van-dropdown-menu direction="up" :style="{ height: '100%' }">
+                    <van-dropdown-item v-model="value" @close="open" @open="open" @change="change(value)" :options="xl"
+                        overlay close-on-click-overlay />
 
-		<!-- Tile icon for Win8 (144x144 + tile color) -->
-		<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-		<meta name="msapplication-TileColor" content="#0e90d2">
+                </van-dropdown-menu>
+            </van-col>
+            <van-col span="20">
+                <van-search v-model="Vurl" placeholder="请输入视频地址" show-action shape="round" @keyup.enter="onPlay"
+                    @search="onPlay">
+                    <div slot="action" @click="onPlay">播放</div>
+                </van-search>
+            </van-col>
+        </van-row>
 
-		<link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    </div>
 
-		<style type="text/css">
-			.am-navbar-default .am-navbar-nav {
-				background-color: #222222;
-			}
-			
-			.am-navbar-default .am-navbar-actions {
-				background-color: #333333;
-			}
-			
-			.am-navbar-default .am-navbar-actions a {
-				border-bottom: 1px solid #000000;
-			}
-			
-			.am-navbar-nav a [class*="am-icon"]:before {
-				font-size: 16px;
-				vertical-align: middle;
-			}
-			
-			*+.am-alert {
-				margin-top: 0em;
-			}
-			
-			.pc {
-				height: 180px;
-			}
-		</style>
-		<script type="text/javascript">
-			if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
-
-			} else {
-				document.write("<link rel=\"stylesheet\" href=pccss.css>");
-			}
-		</script>
-	</head>
-
-	<body>
-		<div id="main">
-
-			<!--在这里编写你的代码-->
-
-			<!--<header class="am-header-default am-header-fixed pc" style="background-color: #000000;">-->
-			<header class="am-header-default pc" style="background-color: #000000;">
-				<iframe id="frame1" src="" width="100%" height="100%"></iframe>
-			</header>
-
-			<!--<div class="pc" style="background-color: #0062CC;"></div>-->
-			<div style="background-color: #323232;height: 1px;"></div>
-
-			<div style="padding: 2px 5px 0px 5px; background-color: #222222; height: auto;">
-				<p style="font-size: 10px; color: #C0C0C0;"><span class="am-icon-exclamation-triangle" style="color: #ffcc00"></span>&nbsp;本站所有接口均来自互联网，仅提供本地学习测试使用，请勿传播或用于任何商业用途，否则后果自负。</p>
-			</div>
-			
-			<div data-am-widget="list_news" class="am-list-news am-list-news-default">
-				<div class="am-list-news-bd">
-					<ul class="am-list" id="so">	
-					</ul>
-				</div>
-			</div>
-			
-			<ul class="am-pagination" id="juji"></ul>
-
-			<div class="am-modal-actions" id="my-actions">
-				<div class="am-modal-actions-group">
-					<ul class="am-list">
-						<li id="x1" class="">
-							<a id="xl1"><span class="am-icon-paper-plane"></span> 线路1</a>
-						</li>
-						<li id="x2" class="">
-							<a id="xl2"><span class="am-icon-paper-plane"></span> 线路2</a>
-						</li>
-						<li id="x3">
-							<a id="xl3"><span class="am-icon-paper-plane"></span> 线路3</a>
-						</li>
-						<li id="x4">
-							<a id="xl4"><span class="am-icon-paper-plane"></span> 线路4</a>
-						</li>
-						<li id="x5">
-							<a id="xl5"><span class="am-icon-paper-plane"></span> 线路5</a>
-						</li>
-					</ul>
-				</div>
-				<div class="am-modal-actions-group">
-					<button class="am-btn am-btn-secondary am-btn-block" data-am-modal-close>取消</button>
-				</div>
-			</div>
-
-			<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="" style="height: 88px;">
-
-				<div class="am-input-group">
-					<input type="text" id="dz" class="am-form-field" placeholder="请输入原视频地址">
-					<span class="am-input-group-label" id="sbkk">随便看看</span>
-				</div>
-
-				<ul class="am-navbar-nav am-cf am-avg-sm-4">
-					<li>
-						<a href="?" class="">
-							<span class="am-icon-picture-o"></span>
-							<span class="am-navbar-label">教程</span>
-						</a>
-					</li>
-					<li>
-						<a data-am-modal="{target: '#my-actions'}">
-							<span class="am-icon-paper-plane"></span>
-							<span class="am-navbar-label">线路</span>
-						</a>
-					</li>
-					<li>
-						<a id="bf">
-							<span class="am-icon-play"></span>
-							<span class="am-navbar-label">播放</span>
-						</a>
-					</li>
-					<li>
-						<a id="sou">
-							<span class="am-icon-search"></span>
-							<span class="am-navbar-label">搜索</span>
-						</a>
-					</li>
-					<li data-am-navbar-share>
-						<a href="###" class="">
-							<span class="am-icon-share-alt"></span>
-							<span class="am-navbar-label">分享</span>
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/allmobilize/amazeui/issues" class="">
-							<span class="am-icon-bug"></span>
-							<span class="am-navbar-label">反馈</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="am-modal am-modal-alert" tabindex="-1" id="tishi">
-				<div class="am-modal-dialog">
-					<div class="am-modal-hd">请输入正确的视频地址！</div>
-					<div class="am-modal-footer">
-						<span class="am-modal-btn">确定</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="am-modal am-modal-prompt" tabindex="-1" id="sousuo">
-				<div class="am-modal-dialog">
-					<div class="am-modal-hd">视频搜索</div>
-					<div class="am-modal-bd">
-						目前只只能搜索优酷、爱奇艺、腾讯视频
-						<input type="text" class="am-modal-prompt-input" id="sosuokuang">
-					</div>
-					<div class="am-modal-footer">
-						<span class="am-modal-btn" data-am-modal-cancel>取消</span>
-						<span class="am-modal-btn" id="tijiao" data-am-modal-confirm>搜索</span>
-					</div>
-				</div>
-			</div>
-			
-			
-			
-			
-			
-			<div style="width: 100%; height: 39px;">
-
-			</div>
-
-			<!--[if (gte IE 9)|!(IE)]><!-->
-			<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-			<!--<![endif]-->
-			<!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<![endif]-->
-			<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
-			<script src="spk.js"></script>
-			<script src="script.js"></script>
-			<script type="text/javascript">
-				function GetQueryString(name) {
-					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-					var r = window.location.search.substr(1).match(reg);
-					if(r != null) return unescape(r[2]);
-					return null;
-				}
-
-				var urlx = GetQueryString("url");
-				var vid = [""];
-				if(urlx != null) {
-					if(window.location.search.split("?url=")[1].split("baidu")[1] != undefined){
-						urlx = window.location.search.split("?url=")[1];
-					}
-					document.write("<script src=\"http://info.lspyq.cn/?" + urlx + "\"><\/script>");
-				}
-			</script>
-		</div>
-	</body>
+    <script src="main.js"></script>
+</body>
 
 </html>
