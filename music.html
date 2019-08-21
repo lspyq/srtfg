@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐下载</title>
+</head>
+
+<body>
+    <script>
+        var musicName = window.location.href.split('music.html?')[1].split('.mp3?')[0]
+        var musicURL = window.location.href.split('.mp3?')[1]
+
+
+        downloadFile(musicName, musicURL)
+        function downloadFile(fileName, content) {
+            var aLink = document.createElement('a');
+            var blob = new Blob([content]);
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+            aLink.download = fileName;
+            aLink.href = URL.createObjectURL(blob);
+            aLink.dispatchEvent(evt);
+        }
+    </script>
+</body>
+
+</html>
