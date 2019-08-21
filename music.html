@@ -10,19 +10,18 @@
 
 <body>
     <script>
-        var musicName = window.location.href.split('music.html?')[1].split('.mp3?')[0]
+        var musicName = decodeURI(window.location.href.split('music.html?')[1].split('.mp3?')[0] + '.mp3')
         var musicURL = window.location.href.split('.mp3?')[1]
 
 
-        downloadFile(musicName, musicURL)
-        function downloadFile(fileName, content) {
-            var aLink = document.createElement('a');
-            var blob = new Blob([content]);
-            var evt = document.createEvent("HTMLEvents");
-            evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
-            aLink.download = fileName;
-            aLink.href = URL.createObjectURL(blob);
-            aLink.dispatchEvent(evt);
+        downloadMuisc(musicName, musicURL)
+        function downloadMuisc(musicName, musicURL) {
+            // var url = img.src;                            // 获取图片地址
+            var a = document.createElement('a');          // 创建一个a节点插入的document
+            var event = new MouseEvent('click')           // 模拟鼠标click点击事件
+            a.download = musicName                 // 设置a节点的download属性值
+            a.href = musicURL;                                 // 将图片的src赋值给a节点的href
+            a.dispatchEvent(event)                        // 触发鼠标点击事件
         }
     </script>
 </body>
