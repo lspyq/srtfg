@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.dh {
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+}
+
+.dh li {
+    float: left;
+    /* display: inline-block; */
+    width: calc(100%/6);
+    /* background: #000; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dh a {
+    margin: 3px auto;
+    width: 90%;
+    border-radius: 2px;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8em;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nr {
+    width: 100%;
+    /* min-height: 1100px; */
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.nr li {
+    position: relative;
+    border-bottom: 1px dotted #c2c2c2;
+    padding: 8px 0;
+}
+
+.nr li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    background: #eee;
+    width: 50px;
+    font-size: 0.5em;
+    z-index: -1;
+    color: #888
+}
+
+.nr a {
+    display: block;
+    margin-left: 60px;
+    overflow: hidden;
+    color: #666
+}
+
+.fy {
+    margin: 1em 0;
+    text-align: center;
+}
+
+
+.fy ul *,input {
+    margin: 0 1px;
+    padding: 0.3em 0.6em;
+    border: 1px solid #777;
+    line-height: 3em;
+    background: #fff;
+    border-radius: 3px
+}
+
+
+.fy input {
+    /* display:block; */
+    margin: 0 2px;
+    line-height: 1em
+}
+
+.pagenow {
+    background: #777 !important;
+    color: #fff;
+}
+.fy em{ 
+    background: #eee !important;
+    border: 0;
+    
+}
