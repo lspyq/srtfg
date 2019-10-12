@@ -36,11 +36,11 @@
                 return $(data).find(".playlist")[0].innerText
             }
             let dh = $(data).find(".nav").find("ul")[0].innerHTML
-            app.dh = dh
+            //app.dh = dh
             let nr = $($(data).find(".videoContent")[0])
             nr.find(".time1,.time,.address,img").remove()
             nr = nr[0].innerHTML
-            app.nr = nr
+            //app.nr = nr
             let fy = $(data).find("ol")[0]
             $(".fy ul").append($(fy).find("em,span,a"))
             $(".fy .tz").append($(fy).find("input"))
