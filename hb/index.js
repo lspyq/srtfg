@@ -1,4 +1,10 @@
-
+        var loading = setInterval(() => {
+            if ($(".loading span")[0].innerText == "加载中...") {
+                $(".loading span")[0].innerText = "加载中."
+            } else {
+                $(".loading span")[0].innerText += "."
+            }
+        }, 500);
         var url = getParams("url") || "http://800zy12.com/"
         if (getParams("wd")) {
             $.post("http://800zy12.com/index.php?m=vod-search", {
@@ -6,26 +12,33 @@
             },
                 function (data, status) {
                     create(data)
+
+                    $(".loading").hide()
+                    clearInterval(loading)
                 });
+
+            $(".loading").hide()
+            clearInterval(loading)
         } else {
             $.get(url, function (data, status) {
                 let u = getParams("url") || ""
                 if (u.indexOf("show") > -1) {
-                    if (uni) {
-                        document.addEventListener('UniAppJSBridgeReady', function () {
-                            uni.navigateTo({
-                                url: 'player?src=' + create(data, true)
-                            });
-                        });
-                    }
-                    console.log(create(data, true))
+                    let info = create(data, true)
+                    //uni.navigateTo({
+                     //   url: 'player?src=' + info.src + '&name=' + info.name
+                    //});
+                    window.history.back(-1)
+                    $(".loading").hide()
+                    clearInterval(loading)
+                    console.log(create(data, true).src)
                     return
 
                 } else {
-                    // console.log(data)
                     create(data)
 
                 }
+                $(".loading").hide()
+                clearInterval(loading)
             });
         }
 
@@ -33,25 +46,28 @@
             data = data.replace(/href="/g, 'href="?url=http://800zy12.com');
             data = data.replace(/<img/g, '<i');
             if (v) {
-                return $(data).find(".playlist")[0].innerText
+
+
+                return {
+                    name: $(data).find(".whitetitle")[0].innerText.replace(/影片名称：/g, ''),
+                    src: $(data).find(".playlist")[0].innerText
+                }
             }
-            let dh = $(data).find(".nav").find("ul")[0].innerHTML
-            //app.dh = dh
+            let dh = $(data).find(".nav").find("ul")[0]
+            $(".dh ul").append(dh)
             let nr = $($(data).find(".videoContent")[0])
             nr.find(".time1,.time,.address,img").remove()
-            nr = nr[0].innerHTML
-            //app.nr = nr
+            $(".nr ul").append(nr[0])
             let fy = $(data).find("ol")[0]
             $(".fy ul").append($(fy).find("em,span,a"))
             $(".fy .tz").append($(fy).find("input"))
             $(fy).find("*").remove()
-            if ($(data).find(".index_list_foot")[0]) {
-                $(".fy .tz").prepend($(data).find(".index_list_foot")[0].innerText);
-            }
 
             if ($(fy)[0]) {
                 $(".fy .tz").prepend($(fy)[0].innerText);
 
+            } else if ($(data).find(".index_list_foot")[0]) {
+                $(".fy .tz").prepend($(data).find(".index_list_foot")[0].innerText);
             }
         }
 
@@ -68,4 +84,3 @@
             }
             return (false);
         }
-
