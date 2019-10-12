@@ -1,4 +1,4 @@
-window.index = function(){
+
         var url = getParams("url") || "http://800zy12.com/"
         if (getParams("wd")) {
             $.post("http://800zy12.com/index.php?m=vod-search", {
@@ -68,4 +68,4 @@ window.index = function(){
             }
             return (false);
         }
-}
+
