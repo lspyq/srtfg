@@ -1,4 +1,10 @@
 
+var win = document.getElementById('win')
+var btn = document.getElementById('btn')
+var err = document.getElementById('err')
+var yes = document.getElementById('yes')
+var bg = document.getElementById('bg')
+
 $(document).ready(function () {
     $(document).bind("contextmenu", function (e) {
         return false;
@@ -14,7 +20,8 @@ function arr() {
 }
 
 $(".n").click(function () {
-    playAudio("btn")
+    // playAudio("btn")
+    btn.play()
     $("#game_box").show()
     $("#control").show()
     $("#option").hide()
@@ -26,8 +33,11 @@ $(".n").click(function () {
 })
 
 $("#restart").click(function () {
-    //playBG()
-    playAudio("btn")
+    // playBG()
+    bg.play()
+    btn.play()
+
+    // playAudio("btn")
     clearInterval(window.timer)
     window.t = 0
     $("#time span").text(t + "秒")
@@ -35,8 +45,11 @@ $("#restart").click(function () {
 })
 
 $("#back").click(function () {
-    //playBG("stop")
-    playAudio("btn")
+    // playBG("stop")
+    bg.pause()
+    // playAudio("btn")
+    btn.play()
+
     $("#game_box")[0].innerHTML = ""
     clearInterval(window.timer)
     window.t = 0
@@ -48,8 +61,8 @@ $("#back").click(function () {
 
 function gameControl(num) {
     $("#time").show()
-
-    //playBG()
+bg.play()
+    // playBG()
     window.t = 0
     $("#game_box")[0].innerHTML = ``
     window.nowNum = 0
@@ -75,7 +88,8 @@ function c(me) {
         me.style.background = "rgb(114, 234, 255)"
         window.nowNum++
         if (me.innerHTML == window.s - 1) {
-            playAudio("win")
+            // playAudio("win")
+            win.play()
             console.log("游戏结束，成绩为：" + window.t.toFixed(2) + "秒")
             $("#game_box")[0].innerHTML += `<div id="win">用时：` + window.t.toFixed(2) + `秒</div>`
             clearInterval(window.timer)
@@ -85,9 +99,11 @@ function c(me) {
             }
             return
         }
-        playAudio("yes")
+        // playAudio("yes")
+        yes.play()
     } else {
-        playAudio("err")
+        // playAudio("err")
+        err.play()
         me.style.background = "rgb(255, 68, 0)"
         setTimeout(() => {
             if (me.style.background != "rgb(114, 234, 255)") {
