@@ -4,7 +4,9 @@ var btn = document.getElementById('btn')
 var err = document.getElementById('err')
 var yes = document.getElementById('yes')
 var bg = document.getElementById('bg')
-
+win.play()
+btn.play()
+err.play()
 $(document).ready(function () {
     $(document).bind("contextmenu", function (e) {
         return false;
