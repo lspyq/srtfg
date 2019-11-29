@@ -26,7 +26,7 @@ $(".n").click(function () {
 })
 
 $("#restart").click(function () {
-    playBG()
+    //playBG()
     playAudio("btn")
     clearInterval(window.timer)
     window.t = 0
@@ -35,7 +35,7 @@ $("#restart").click(function () {
 })
 
 $("#back").click(function () {
-    playBG("stop")
+    //playBG("stop")
     playAudio("btn")
     $("#game_box")[0].innerHTML = ""
     clearInterval(window.timer)
@@ -49,7 +49,7 @@ $("#back").click(function () {
 function gameControl(num) {
     $("#time").show()
 
-    playBG()
+    //playBG()
     window.t = 0
     $("#game_box")[0].innerHTML = ``
     window.nowNum = 0
