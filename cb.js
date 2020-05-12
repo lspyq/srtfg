@@ -1,3 +1,4 @@
+function a() {
 function changeVideo(node) {
     if (window.V.movieInfo[1] == node.dataset.id) {
         return
@@ -133,3 +134,4 @@ onLoadOver('jQuery', function (err) {
 
     });
 })
+}
