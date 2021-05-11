@@ -1,80 +1,71 @@
-var Vue = window.Vue;
-var vant = window.vant;
+var W = Math.min($('body')[0].offsetWidth, $('body')[0].offsetHeight)
+var T = ($('body')[0].offsetHeight - W) / 2
+var L = ($('body')[0].offsetWidth - W) / 2
 
-Vue.use(vant.Lazyload);
-Vue.use(vant.Row).use(vant.Col);
-Vue.use(vant.DropdownMenu).use(vant.DropdownItem);
-Vue.use(vant.Search);
-Vue.use(vant.Icon);
-var app = new Vue({
-    el: '#main',
-    data: {
-        Vurl: "",
-        value: 0,
-        url: "",
-        xl: [],
-        x: ["http://69p.top/?url=",
-            "http://74t.top/?url=",
-            "http://mimijiexi.top/?url=",
-            "http://55jx.top/?url=",
-            "http://api.baiyug.vip/index.php?url=",
-            "http://playx.top/?url=",
-            "http://nitian9.com/?url=",
-            "http://19g.top/?url=",
-            "http://607p.com/?url=",
-            "http://52088.online/?url=",
-            "http://bofang.online/?url=",
-            "http://play1.online/?url=",
-            "http://play1.online/?url=",
-            "http://ckplay.online/?url=",
-            "http://ckplay.online/?url=",
-            "http://api.baiyug.vip/?url=",
-            "http://880kan.com/?url=",
-            "http://jx.09876as.cn/jx.php/?url=",
-            "http://59uv.com/?url=",
-            "http://bofang.online/?url=",
-            "http://607p.com/?url=",
-        ],
-    },
-    methods: {
-        open() {
-            if (this.$refs.video.style.display == 'none') {
-                this.$refs.video.style.display = 'block'
-            } else {
-                this.$refs.video.style.display = 'none'
-            }
-        },
-
-        change(v) {
-            window.location.href = "?xl=" + v + "&url=" + this.Vurl
-        },
-
-        onPlay() {
-            this.url = this.x[this.value] + this.Vurl
-            window.location.href = "?xl=" + this.value + "&url=" + this.Vurl
-        },
-
-        init() {
-            for (let i = 0; i < this.x.length; i++) {
-                this.xl.push({ text: '线路' + i, value: i })
-            }
-            
-            if (window.location.href.split("?xl=")[1]) {
-                this.value = parseInt(window.location.href.split("?xl=")[1].split("&")[0])
-                if (window.location.href.split("?xl=")[1].split("&url=")[1]) {
-                    this.Vurl = window.location.href.split("&url=")[1]
-                    this.url = this.x[this.value] + this.Vurl
-                }
-            }
-
-        },
-
-    },
-
-    mounted() {
-        this.init()
-
-    },
+$("#container").css({
+    width: W + "px",
+    height: W + "px",
+    top: T + "px",
+    left: L + "px"
 })
 
+N9 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+N16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+N25 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+N36 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+N = {
+    9: N9,
+    16: N16,
+    25: N25,
+    36: N36,
+}
 
+for (let i = 3; i < 7; i++) {
+    let G = $(`<div class="grid"></div>`)
+    let bg
+    i == 3 || i == 6 ? (bg = "#ddd") : (bg = "#fff")
+    $(G).css({
+        width: W / 2 + "px",
+        height: W / 2 + "px",
+        "font-size": W / 2 / 2 + "px",
+        background: bg
+    })
+    $(G).text(i * i)
+    $("#container").append(G)
+}
+
+$(".grid").click(function () {
+    $("#container").html("")
+    let n = N[$(this).text()].slice()
+    n.sort(function () { return 0.5 - Math.random() })
+    let xx = 1
+    for (let i = 0; i < $(this).text(); i++) {
+        let G = $(`<div class="grid"></div>`)
+
+        if (Math.sqrt($(this).text()) % 2 == 0 && i != 0 && i % Math.sqrt($(this).text()) == 0) {
+            xx++
+        }
+        if ((i + xx) % 2) {
+            bg = "#fff"
+        } else {
+            bg = "#ddd"
+        }
+        console.log(xx)
+        $(G).css({
+            width: W / Math.sqrt($(this).text()) + "px",
+            height: W / Math.sqrt($(this).text()) + "px",
+            "font-size": W / Math.sqrt($(this).text()) / 2 + "px",
+            background: bg
+
+        })
+        $(G).text(n[i])
+        $("#container").append(G)
+    }
+})
+
+$("body").click(function () {
+    location.reload()
+})
+$("#container").click(function (event) {
+    event.stopPropagation(); 
+})
