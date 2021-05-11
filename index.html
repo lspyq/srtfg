@@ -3,56 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>免费看电影</title>
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.0/lib/index.css">
+    <title>舒尔特方格</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 引入组件 -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vant@2.0/lib/vant.min.js"></script>
-    <style>
-
-    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 </head>
 
 <body>
-
-    <div id="main" class="box">
-        <div id="warning">
-            <div class="icon">
-                <van-icon size="20px" name="warning-o" color="#aa8800"  />
-            </div>
-            <div class="text">
-                <p>本站所有接口均来自互联网，仅提供本地学习测试使用，请勿传播或用于任何商业用途，否则后果自负。</p>
-            </div>
-
-
-        </div>
-        <div ref="video" id="video">
-            <iframe id="ifr" ref="ifr" v-bind:src="url" frameborder="0"></iframe>
-        </div>
-
-        <van-row ref="row" type="flex" style="position: fixed; bottom: 0px;z-index: 9999;width: 100%;">
-            <van-col span="4">
-                <van-dropdown-menu direction="up" :style="{ height: '100%' }">
-                    <van-dropdown-item v-model="value" @close="open" @open="open" @change="change(value)" :options="xl"
-                        overlay close-on-click-overlay />
-
-                </van-dropdown-menu>
-            </van-col>
-            <van-col span="20">
-                <van-search v-model="Vurl" placeholder="请输入视频地址" show-action shape="round" @keyup.enter="onPlay"
-                    @search="onPlay">
-                    <div slot="action" @click="onPlay">播放</div>
-                </van-search>
-            </van-col>
-        </van-row>
-
+    <div id="container">
     </div>
-
     <script src="main.js"></script>
 </body>
 
