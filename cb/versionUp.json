@@ -1,7 +1,0 @@
-{
-    "newVersion": "1.0.1",
-        "req": {
-        "queryString": "http://lspyq.cn/cb/query-string.js"
-    }
-
-}
